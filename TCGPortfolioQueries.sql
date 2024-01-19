@@ -33,6 +33,12 @@ WHERE TCGorderList.State = State_Pop.State
 GROUP By TCGorderList.State,State_Pop.State, State_Pop.Population
 ORDER By Per_Capita DESC
 
+--What Cities in California have the most sales
+SELECT COUNT(OrderNum) AS Order_Count, City AS California_City
+FROM TCGorderList
+WHERE State = 'CA'
+GROUP BY City
+ORDER BY COUNT(City) DESC
 
 
 
