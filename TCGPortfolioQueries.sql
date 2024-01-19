@@ -40,6 +40,16 @@ WHERE State = 'CA'
 GROUP BY City
 ORDER BY COUNT(City) DESC
 
+--Break Down of What zip codes in San Fran have the most orders.
+SELECT Zip, COUNT(Zip)
+FROM TCGorderList
+WHERE City = 'San Francisco' AND State = 'CA'
+GROUP BY Zip, City
+ORDER BY COUNT(City) DESC
+
+SELECT *
+FROM TCGorderList
+
 
 
 
