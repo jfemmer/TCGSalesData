@@ -48,7 +48,7 @@ GROUP BY Zip, City
 ORDER BY COUNT(City) DESC
 
 --January Sales
-SELECT COUNT(Order_Date) AS Order_Count, CAST(Order_Date AS date) AS Date
+SELECT CAST(Order_Date AS date) AS Date, SUM(Product_Amt) AS Sales, COUNT(Order_Date) AS Order_Count
 FROM TCGorderList
 WHERE Order_Date BETWEEN '2024-01-01' AND '2024-01-19'
 GROUP BY Order_Date
