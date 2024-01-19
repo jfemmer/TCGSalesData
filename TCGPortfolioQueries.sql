@@ -47,9 +47,15 @@ WHERE City = 'San Francisco' AND State = 'CA'
 GROUP BY Zip, City
 ORDER BY COUNT(City) DESC
 
+--January Sales
+SELECT COUNT(Order_Date) AS Order_Count, CAST(Order_Date AS date) AS Date
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2024-01-01' AND '2024-01-19'
+GROUP BY Order_Date
+ORDER BY Order_Date
+
 SELECT *
 FROM TCGorderList
-
 
 
 
