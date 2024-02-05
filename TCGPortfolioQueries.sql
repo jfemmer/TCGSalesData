@@ -51,8 +51,18 @@ ORDER BY COUNT(City) DESC
 SELECT CAST(Order_Date AS date) AS Date, SUM(Product_Amt) AS Sales, COUNT(Order_Date) AS Order_Count
 FROM TCGorderList
 WHERE Order_Date BETWEEN '2024-01-01' AND '2024-01-19'
-GROUP BY Order_Date
 ORDER BY Order_Date
+
+--Find What highest Product Cost will give a loss
+SELECT *
+FROM TCGorderList
+WHERE Net_Profit < 0
+ORDER BY Product_Amt DESC
+
+--Total Loss on orders
+SELECT SUM(Net_Profit) AS Loss
+FROM TCGorderList
+WHERE Net_Profit < 0
 
 SELECT *
 FROM TCGorderList
