@@ -47,11 +47,55 @@ WHERE City = 'San Francisco' AND State = 'CA'
 GROUP BY Zip, City
 ORDER BY COUNT(City) DESC
 
---January Sales
+--November Daily Sales
 SELECT CAST(Order_Date AS date) AS Date, SUM(Product_Amt) AS Sales, COUNT(Order_Date) AS Order_Count
 FROM TCGorderList
-WHERE Order_Date BETWEEN '2024-01-01' AND '2024-01-19'
+WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30'
+GROUP BY Order_Date
 ORDER BY Order_Date
+
+--November Monthly Sales
+SELECT SUM(Product_Amt) AS Sales
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2023-11-01' AND '2023-11-30'
+
+--December Daily Sales
+SELECT CAST(Order_Date AS date) AS Date, SUM(Product_Amt) AS Sales, COUNT(Order_Date) AS Order_Count
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2023-12-01' AND '2023-12-31'
+GROUP BY Order_Date
+ORDER BY Order_Date
+
+--December Monthly Sales
+SELECT SUM(Product_Amt) AS Sales
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2023-12-01' AND '2023-12-31'
+
+--January Daily Sales
+SELECT CAST(Order_Date AS date) AS Date, SUM(Product_Amt) AS Sales, COUNT(Order_Date) AS Order_Count
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2024-01-01' AND '2024-01-31'
+GROUP BY Order_Date
+ORDER BY Order_Date
+
+--January Monthly Sales
+SELECT SUM(Product_Amt) AS Sales
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2024-01-01' AND '2024-01-31'
+
+
+--February Daily Sales
+SELECT CAST(Order_Date AS date) AS Date, SUM(Product_Amt) AS Sales, COUNT(Order_Date) AS Order_Count
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2024-02-01' AND '2024-02-28'
+GROUP BY Order_Date
+ORDER BY Order_Date
+
+--February Monthly Sales
+SELECT SUM(Product_Amt) AS Sales
+FROM TCGorderList
+WHERE Order_Date BETWEEN '2024-02-01' AND '2024-02-28'
+
 
 --Find What highest Product Cost will give a loss
 SELECT *
@@ -66,7 +110,6 @@ WHERE Net_Profit < 0
 
 SELECT *
 FROM TCGorderList
-
 
 
 
